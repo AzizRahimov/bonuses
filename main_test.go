@@ -5,21 +5,20 @@ import "testing"
 func Test_bonus(t *testing.T) {
 
 	tests := []struct {
-		name string
-		moneyBonus int
-		want int
+		name  string
+		sales []int
+		want  int
 	}{
 		// TODO: Add test cases.
-		{"bonus received", 12_000, 100},
-		{"no bonus", 8_000, 0},
-		{"min bonus", 10_020, 1 },
-
+		{"bonus received", []int{12_000, 4_000}, 100},
+		{"no bonus", []int{10_000, 10_000}, 0},
+		{"for all values", []int{12_000, 15_000}, 350},
 	}
 	for _, tt := range tests {
-		got :=bonus(tt.moneyBonus)
+		got := bonus(tt.sales)
 
-			if got!= tt.want {
-				t.Error("for bonus test", tt.name, "got", got, "want", tt.want)
-			}
+		if got != tt.want {
+			t.Error("for bonus test", tt.name, "got", got, "want", tt.want)
 		}
 	}
+}
