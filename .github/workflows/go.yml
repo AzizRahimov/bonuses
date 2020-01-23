@@ -28,5 +28,5 @@ jobs:
       run: go build -v .
       
     - name: Tests
-      run: go test -v.
+      run: go test -v .
       
